@@ -79,6 +79,7 @@ function App() {
                 aria-label="Delete todo"
                 className="ml-auto"
                 onClick={() => removeUser(index)}
+                title="Delete todo"
               >
                 ❎
               </button>
