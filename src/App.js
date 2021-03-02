@@ -44,10 +44,7 @@ function App() {
   }
 
   return (
-    <div
-      className="mx-auto p-3 min-h-full flex-1 border mt-3 mb-3 rounded-md shadow-sm"
-      style={{ minWidth: "400px", maxWidth: "400px" }}
-    >
+    <div id="app" className="min-h-full flex-1 border rounded-md shadow-sm">
       <div className="py-1">
         <h4 className="text-2xl">My Todo Lists</h4>
       </div>
