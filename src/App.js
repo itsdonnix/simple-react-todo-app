@@ -78,7 +78,11 @@ function App() {
               <span style={{ textDecoration: todo.active && "line-through" }}>
                 {todo.description}
               </span>
-              <button className="ml-auto" onClick={() => removeUser(index)}>
+              <button
+                aria-label="Delete todo"
+                className="ml-auto"
+                onClick={() => removeUser(index)}
+              >
                 ❎
               </button>
             </li>
