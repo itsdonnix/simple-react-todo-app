@@ -78,11 +78,8 @@ function App() {
               <span style={{ textDecoration: todo.active && "line-through" }}>
                 {todo.description}
               </span>
-              <button
-                className="ml-auto px-1 valign-center w-6 h-6 rounded-full bg-red-400 text-white"
-                onClick={() => removeUser(index)}
-              >
-                x
+              <button className="ml-auto" onClick={() => removeUser(index)}>
+                ❎
               </button>
             </li>
           ))}
