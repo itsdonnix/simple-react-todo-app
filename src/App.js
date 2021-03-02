@@ -49,7 +49,7 @@ function App() {
       style={{ minWidth: "400px", maxWidth: "400px" }}
     >
       <div className="py-1">
-        <h4 className="text-2xl">My To-do Lists</h4>
+        <h4 className="text-2xl">My Todo Lists</h4>
       </div>
       <div>
         <form
@@ -62,9 +62,7 @@ function App() {
             className="border p-1 rounded-sm w-full my-2"
             type="text"
             value={todo.description}
-            onChange={(event) =>
-              setTodo({ description: event.target.value, active: false })
-            }
+            onChange={(event) => setTodo({ description: event.target.value, active: false })}
           />
         </form>
         <ul>
