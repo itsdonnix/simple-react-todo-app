@@ -2,6 +2,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import LocalStorage from "./localStorage";
+import TodoItem from "./TodoItem";
 
 const todoDB = new LocalStorage("todos", []);
 
@@ -48,7 +49,7 @@ function App() {
       <div className="py-1">
         <h4 className="text-2xl">My Todo Lists</h4>
       </div>
-      <div>
+      <div className="flex flex-col flex-1 min-h-full">
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -64,26 +65,13 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, index) => (
-            <li key={index} className="flex p-2 border-b items-center">
-              <input
-                className="mr-2"
-                type="checkbox"
-                onChange={({ target }) => setActiveUser(index, target.checked)}
-                checked={todo.active}
-                style={{ transform: "scale(1.3)" }}
-              />
-              <span style={{ textDecoration: todo.active && "line-through" }}>
-                {todo.description}
-              </span>
-              <button
-                aria-label="Delete todo"
-                className="ml-auto"
-                onClick={() => removeUser(index)}
-                title="Delete todo"
-              >
-                ❎
-              </button>
-            </li>
+            <TodoItem
+              key={index}
+              todo={todo}
+              index={index}
+              onActiveChange={setActiveUser}
+              onRemoveClicked={removeUser}
+            />
           ))}
         </ul>
       </div>
