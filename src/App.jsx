@@ -36,7 +36,7 @@ function App() {
       todoDB.setData(_todos);
       resetTodo();
     } else {
-      alert("User description can't be empty");
+      alert("Todo can't be empty");
     }
   }
 
