@@ -1,15 +1,12 @@
 // @ts-check
 import "./App.css";
 import React, { useState } from "react";
+import LocalStorage from "./localStorage";
+
+const todoDB = new LocalStorage("todos", []);
 
 function App() {
-  const [todos, setTodos] = useState([
-    { description: "Design ERD", active: false },
-    { description: "Dinner with girlfriend", active: true },
-    { description: "Learn React", active: false },
-    { description: "Learn DFD", active: false },
-    { description: "Make a side project", active: false },
-  ]);
+  const [todos, setTodos] = useState(todoDB.getData());
 
   const [todo, setTodo] = useState({
     description: "",
@@ -20,12 +17,14 @@ function App() {
     const _todos = [...todos];
     _todos[index].active = active;
     setTodos(_todos);
+    todoDB.setData(_todos);
   }
 
   function removeUser(index) {
     const _todos = [...todos];
     _todos.splice(index, 1);
     setTodos(_todos);
+    todoDB.setData(_todos);
   }
 
   function addUser() {
@@ -33,6 +32,7 @@ function App() {
       const _todos = [...todos];
       _todos.push(todo);
       setTodos(_todos);
+      todoDB.setData(_todos);
       resetTodo();
     } else {
       alert("User description can't be empty");
