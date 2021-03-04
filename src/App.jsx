@@ -44,6 +44,30 @@ function App() {
     setTodo({ description: "", active: false });
   }
 
+  function Todos() {
+    if (todos.length) {
+      return (
+        <ul>
+          {todos.map((todo, index) => (
+            <TodoItem
+              key={index}
+              todo={todo}
+              index={index}
+              onActiveChange={setActiveUser}
+              onRemoveClicked={removeUser}
+            />
+          ))}
+        </ul>
+      );
+    } else {
+      return (
+        <div className="text-gray-500 flex flex-col text-center py-5">
+          Hmm ... There's nothing to do now 🤔
+        </div>
+      );
+    }
+  }
+
   return (
     <div id="app" className="min-h-full flex-1 border rounded-md shadow-sm">
       <div className="py-1">
@@ -63,17 +87,7 @@ function App() {
             onChange={(event) => setTodo({ description: event.target.value, active: false })}
           />
         </form>
-        <ul>
-          {todos.map((todo, index) => (
-            <TodoItem
-              key={index}
-              todo={todo}
-              index={index}
-              onActiveChange={setActiveUser}
-              onRemoveClicked={removeUser}
-            />
-          ))}
-        </ul>
+        <Todos></Todos>
       </div>
     </div>
   );
