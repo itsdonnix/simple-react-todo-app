@@ -21,6 +21,10 @@ body {
   padding: 10px;
 }
 
+.todo--inactive {
+  color: #a7a7b3;
+}
+
 @media (min-width: 768px) {
   #app {
     max-width: 400px;

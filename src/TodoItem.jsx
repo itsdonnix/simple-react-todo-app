@@ -18,7 +18,12 @@ function TodoItem({ todo, index, onActiveChange, onRemoveClicked }) {
         checked={todo.active}
         style={{ transform: "scale(1.3)" }}
       />
-      <span style={{ textDecoration: todo.active && "line-through" }}>{todo.description}</span>
+      <span
+        className={"todo--description " + (todo.active ? "todo--inactive" : "")}
+        style={{ textDecoration: todo.active && "line-through" }}
+      >
+        {todo.description}
+      </span>
       <button
         aria-label="Delete todo"
         className="ml-auto"
