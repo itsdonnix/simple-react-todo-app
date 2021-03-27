@@ -14,21 +14,21 @@ function App() {
     active: false,
   });
 
-  function setActiveUser(index, active) {
+  function setActiveTodo(index, active) {
     const _todos = [...todos];
     _todos[index].active = active;
     setTodos(_todos);
     todoDB.setData(_todos);
   }
 
-  function removeUser(index) {
+  function removeTodo(index) {
     const _todos = [...todos];
     _todos.splice(index, 1);
     setTodos(_todos);
     todoDB.setData(_todos);
   }
 
-  function addUser() {
+  function addTodo() {
     if (!!todo.description) {
       const _todos = [...todos];
       _todos.push(todo);
@@ -53,8 +53,8 @@ function App() {
               key={index}
               todo={todo}
               index={index}
-              onActiveChange={setActiveUser}
-              onRemoveClicked={removeUser}
+              onActiveChange={setActiveTodo}
+              onRemoveClicked={removeTodo}
             />
           ))}
         </ul>
@@ -77,7 +77,7 @@ function App() {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            addUser();
+            addTodo();
           }}
         >
           <input
