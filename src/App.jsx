@@ -50,9 +50,9 @@ function App() {
         <ul>
           {todos.map((todo, index) => (
             <TodoItem
+              index={index}
               key={index}
               todo={todo}
-              index={index}
               onActiveChange={setActiveTodo}
               onRemoveClicked={removeTodo}
             />
@@ -82,9 +82,9 @@ function App() {
         >
           <input
             className="border p-1 rounded-sm w-full my-2"
+            onChange={({ target }) => setTodo({ text: target.value, active: false })}
             type="text"
             value={todo.text}
-            onChange={(event) => setTodo({ text: event.target.value, active: false })}
           />
         </form>
         <Todos></Todos>
