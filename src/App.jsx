@@ -10,7 +10,7 @@ function App() {
   const [todos, setTodos] = useState(todoDB.getData());
 
   const [todo, setTodo] = useState({
-    description: "",
+    text: "",
     active: false,
   });
 
@@ -29,7 +29,7 @@ function App() {
   }
 
   function addTodo() {
-    if (!!todo.description) {
+    if (!!todo.text) {
       const _todos = [...todos];
       _todos.push(todo);
       setTodos(_todos);
@@ -41,7 +41,7 @@ function App() {
   }
 
   function resetTodo() {
-    setTodo({ description: "", active: false });
+    setTodo({ text: "", active: false });
   }
 
   function Todos() {
@@ -83,8 +83,8 @@ function App() {
           <input
             className="border p-1 rounded-sm w-full my-2"
             type="text"
-            value={todo.description}
-            onChange={(event) => setTodo({ description: event.target.value, active: false })}
+            value={todo.text}
+            onChange={(event) => setTodo({ text: event.target.value, active: false })}
           />
         </form>
         <Todos></Todos>
