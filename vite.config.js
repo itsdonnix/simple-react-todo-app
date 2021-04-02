@@ -1,8 +1,6 @@
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import { defineConfig } from "vite";
+import reactRefresh from "@vitejs/plugin-react-refresh";
 
-/**
- * @type { import('vite').UserConfig }
- */
-export default {
-  plugins: [reactRefresh()]
-}
+export default defineConfig({
+  plugins: [reactRefresh()],
+});
