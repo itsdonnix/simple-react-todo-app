@@ -1,6 +1,6 @@
 // @ts-check
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LocalStorage from "./localStorage";
 import TodoItem from "./TodoItem";
 
@@ -14,18 +14,20 @@ function App() {
     active: false,
   });
 
+  useEffect(() => {
+    todoDB.setData(todos);
+  }, [todos]);
+
   function setActiveTodo(index, active) {
     const todosCopy = [...todos];
     todosCopy[index].active = active;
     setTodos(todosCopy);
-    todoDB.setData(todosCopy);
   }
 
   function removeTodo(index) {
     const todosCopy = [...todos];
     todosCopy.splice(index, 1);
     setTodos(todosCopy);
-    todoDB.setData(todosCopy);
   }
 
   function addTodo() {
@@ -33,7 +35,6 @@ function App() {
       const todosCopy = [...todos];
       todosCopy.push(todo);
       setTodos(todosCopy);
-      todoDB.setData(todosCopy);
       resetTodo();
     } else {
       alert("Todo can't be empty");
