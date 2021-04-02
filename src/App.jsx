@@ -15,25 +15,25 @@ function App() {
   });
 
   function setActiveTodo(index, active) {
-    const _todos = [...todos];
-    _todos[index].active = active;
-    setTodos(_todos);
-    todoDB.setData(_todos);
+    const todosCopy = [...todos];
+    todosCopy[index].active = active;
+    setTodos(todosCopy);
+    todoDB.setData(todosCopy);
   }
 
   function removeTodo(index) {
-    const _todos = [...todos];
-    _todos.splice(index, 1);
-    setTodos(_todos);
-    todoDB.setData(_todos);
+    const todosCopy = [...todos];
+    todosCopy.splice(index, 1);
+    setTodos(todosCopy);
+    todoDB.setData(todosCopy);
   }
 
   function addTodo() {
     if (!!todo.text) {
-      const _todos = [...todos];
-      _todos.push(todo);
-      setTodos(_todos);
-      todoDB.setData(_todos);
+      const todosCopy = [...todos];
+      todosCopy.push(todo);
+      setTodos(todosCopy);
+      todoDB.setData(todosCopy);
       resetTodo();
     } else {
       alert("Todo can't be empty");
