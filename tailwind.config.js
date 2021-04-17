@@ -9,7 +9,7 @@ module.exports = {
     extendedFontSizeScale: true,
   },
   purge: {
-    content: ["./index.html"],
+    content: ["./index.html", "./src/**/*.jsx"],
   },
   theme: {
     extend: {},
