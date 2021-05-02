@@ -62,7 +62,7 @@ function App() {
       );
     } else {
       return (
-        <div className="text-gray-500 flex flex-col text-center py-5">
+        <div className="flex flex-col py-5 text-center text-gray-500">
           Hmm ... There's nothing to do now 🤔
         </div>
       );
@@ -70,19 +70,19 @@ function App() {
   }
 
   return (
-    <div id="app" className="min-h-full flex-1 border rounded-md shadow-sm">
+    <div id="app" className="flex-1 min-h-full border rounded-md shadow-sm">
       <div className="py-1">
         <h4 className="text-2xl">My Todo Lists</h4>
       </div>
       <div className="flex flex-col flex-1 min-h-full">
         <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            addTodo();
-          }}
+          onSubmit={(event) => 
+            !event.preventDefault() &&
+            addTodo()
+          }
         >
           <input
-            className="border p-1 rounded-sm w-full my-2"
+            className="w-full p-1 my-2 border rounded-sm"
             onChange={({ target }) => setTodo({ text: target.value, active: false })}
             type="text"
             value={todo.text}
