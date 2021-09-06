@@ -17,7 +17,7 @@
     "cssnano": "^5.0.8",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^2.2.10",
     "vite": "^2.5.1"
   }
 }
